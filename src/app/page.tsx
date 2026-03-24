@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link"; // Importação essencial para navegação
 import Countdown from "@/components/Countdown";
 import GroupSection from "@/components/GroupSection";
 
@@ -33,33 +34,40 @@ export default function Home() {
       <section className="max-w-6xl mx-auto py-16 px-6 -mt-10">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           
-          {/* Card 1: Grupos */}
-          <div className="bg-white p-8 rounded-2xl shadow-xl border border-slate-100 hover:scale-105 transition-transform cursor-pointer">
-            <div className="text-blue-600 mb-4 text-3xl">📅</div>
-            <h3 className="text-xl font-bold mb-2">Tabela de Grupos</h3>
-            <p className="text-slate-500 text-sm">Confira a classificação dos 12 grupos desta edição histórica.</p>
-          </div>
+          {/* Card 1: Grupos - AGORA COM LINK PARA A NOVA PÁGINA */}
+          <Link href="/grupos" className="bg-white p-8 rounded-2xl shadow-xl border border-slate-100 hover:scale-105 transition-transform cursor-pointer block group">
+            <div className="text-blue-600 mb-4 text-3xl group-hover:animate-bounce text-center md:text-left">📅</div>
+            <h3 className="text-xl font-bold mb-2 text-center md:text-left">Tabela de Grupos</h3>
+            <p className="text-slate-500 text-sm text-center md:text-left">Confira a classificação dos 12 grupos desta edição histórica.</p>
+          </Link>
 
           {/* Card 2: Jogos de Hoje */}
           <div className="bg-white p-8 rounded-2xl shadow-xl border border-slate-100 hover:scale-105 transition-transform cursor-pointer">
-            <div className="text-green-600 mb-4 text-3xl">⚽</div>
-            <h3 className="text-xl font-bold mb-2">Jogos ao Vivo</h3>
-            <p className="text-slate-500 text-sm">Acompanhe placares e estatísticas em tempo real.</p>
+            <div className="text-green-600 mb-4 text-3xl text-center md:text-left">⚽</div>
+            <h3 className="text-xl font-bold mb-2 text-center md:text-left">Jogos ao Vivo</h3>
+            <p className="text-slate-500 text-sm text-center md:text-left">Acompanhe placares e estatísticas em tempo real.</p>
           </div>
 
           {/* Card 3: Estádios */}
           <div className="bg-white p-8 rounded-2xl shadow-xl border border-slate-100 hover:scale-105 transition-transform cursor-pointer">
-            <div className="text-yellow-600 mb-4 text-3xl">🏟️</div>
-            <h3 className="text-xl font-bold mb-2">Sedes e Estádios</h3>
-            <p className="text-slate-500 text-sm">Explore as cidades-sede nos EUA, México e Canadá.</p>
+            <div className="text-yellow-600 mb-4 text-3xl text-center md:text-left">🏟️</div>
+            <h3 className="text-xl font-bold mb-2 text-center md:text-left">Sedes e Estádios</h3>
+            <p className="text-slate-500 text-sm text-center md:text-left">Explore as cidades-sede nos EUA, México e Canadá.</p>
           </div>
         </div>
       </section>
 
-      {/* --- NOVA SEÇÃO DE GRUPOS INSERIDA AQUI --- */}
+      {/* SEÇÃO DE GRUPOS (Preview na Home) */}
       <section className="max-w-6xl mx-auto pb-20 px-6">
-        <h2 className="text-3xl font-bold text-slate-800 mb-2">Grupos da Competição</h2>
-        <p className="text-slate-500 mb-8">Confira as seleções que lutarão pelo título em cada chave.</p>
+        <div className="flex items-center justify-between mb-8">
+          <div>
+            <h2 className="text-3xl font-bold text-slate-800">Grupos da Competição</h2>
+            <p className="text-slate-500">Confira as seleções que lutarão pelo título.</p>
+          </div>
+          <Link href="/grupos" className="text-blue-600 font-bold hover:underline text-sm uppercase tracking-wider">
+            Ver tudo →
+          </Link>
+        </div>
         
         <GroupSection />
       </section>
